@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+  background-color: aqua;
+}
+
+.container {
+  background-color: black;
+  color: white;
+  height: 80vh;
+  margin-top: 10vh;
+}
