@@ -27,8 +27,8 @@ function GetUserInfo() {
         </label>
         <button className={formstyles.button} type="submit">
           Submit
-          {onClick={(event) => {
-    setMessage(event.target.value)}}
+          {onClick={(e) => {
+              setUsername(e.target.value)}}
         </button>
       </form>
     </div>
