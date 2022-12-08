@@ -6,6 +6,65 @@
 .container {
   background-color: black;
   color: white;
-  height: 80vh;
-  margin-top: 10vh;
+  height: 100vh;
+  margin-top: 2vh;
+  padding-top: 10px;
+}
+
+.topbar {
+  background-color: white;
+  background-image: url(./images/githubicon.png);
+  background-size: 30px;
+  background-position: left;
+  background-repeat: space no-repeat;
+  overflow: hidden;
+  height: 2vh;
+  border: 1px solid beige;
+  opacity: 1;
+  border-radius: 10px;
+  color: black;
+}
+.mainh1 {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.infobox {
+  border: 1px solid beige;
+  border-radius: 30px;
+  background-color: white;
+  height: 50vh;
+  width: 50vw;
+  margin: auto;
+}
+.form {
+  color: black;
+  margin-top: 5vh;
+  text-align: center;
+  padding-top: 10%;
+}
+input[type="text"] {
+  border: 1px solid beige;
+  border-radius: 10px;
+  background-color: black;
+  opacity: 0.1;
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: black;
+  color: white;
+  border-style: outset;
+  border-color: #0066a2;
+  margin-top: 20px;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  font: 1.5rem arial, sans-serif;
+  text-shadow: none;
+  width: 50%;
 }
