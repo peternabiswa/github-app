@@ -1,37 +1,28 @@
-import React from "react";
-import formstyles from "./app.module.css";
-import { useState, useEffect } from "react";
+import { useState, React } from "react";
+import GetUsers from "./services/GetUsers";
+import styles from "./app.module.css";
 
 function GetUserInfo() {
-  const [username, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
 
-    const handleChange = (event) => {
-      setMessage(event.target.value);
-    };
-
-  const handlesubmit = () => {
-    // 👇 "message" stores input field value
-    setUsername(username);
+  const handleChange = (event) => {
+    setUserName(event.target.value);
   };
 
-
   return (
-    <div className={formstyles.infobox}>
-      <form className={formstyles.form}>
-        <label>
-          <h2>Enter GitHub Username</h2>
-          <input
-            type="text"
-            value={username}
-          />
-        </label>
-        <button className={formstyles.button} type="submit">
-          Submit
-          {onClick={(e) => {
-              setUsername(e.target.value)}}
-        </button>
+    <div>
+      <form className={styles.form} onSubmit={<GetUsers find={userName} />}>
+        <label> Enter GitHub user name: </label>
+        <input
+          type="text"
+          placeholder="..."
+          value={userName}
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
 }
+
 export default GetUserInfo;
