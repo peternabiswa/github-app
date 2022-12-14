@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
       <div className={styles.container}>
-        <div className={styles.topbar}></div>
         <main>
           <h1 className={styles.mainh1}>Find Users</h1>
+          <div className={styles.topbar}></div>
           <GetUserInfo />
         </main>
       </div>

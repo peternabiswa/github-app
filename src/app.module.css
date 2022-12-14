@@ -39,15 +39,16 @@
   margin: auto;
 }
 .form {
-  color: black;
+  color: white;
   text-align: center;
   padding-top: 10%;
 }
 input[type="text"] {
-  border: 1px solid beige;
+  border-style: outset;
+  border-color: #0066a2;
   border-radius: 10px;
-  background-color: black;
-  opacity: 0.1;
+  background-color: white;
+  opacity: 0.95;
   width: 80%;
   padding: 12px 20px;
   margin: 8px 0;

@@ -9,11 +9,16 @@ function GetUserInfo() {
     setUserName(event.target.value);
   };
 
+  const handleSubmit = () => {
+    <GetUsers userName={userName} />;
+  };
+
   return (
     <div>
-      <form className={styles.form} onSubmit={<GetUsers find={userName} />}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <label> Enter GitHub user name: </label>
         <input
+          test-id="gitUser"
           type="text"
           placeholder="..."
           value={userName}
