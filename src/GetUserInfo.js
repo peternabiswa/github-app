@@ -1,26 +1,22 @@
 import { useState, React } from "react";
-import GetUsers from "./services/GetUsers";
+import GetUsers from "./services/Users";
 import styles from "./app.module.css";
 
-function GetUserInfo() {
+function GetUserInfo({ getName }) {
   const [userName, setUserName] = useState("");
 
   const handleChange = (event) => {
     setUserName(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    <GetUsers userName={userName} />;
+    getName(event.target.value);
   };
 
   return (
     <div>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <label> Enter GitHub user name: </label>
+      <form className={styles.form}>
         <input
           test-id="gitUser"
           type="text"
-          placeholder="..."
+          placeholder="Enter GitHub user name:"
           value={userName}
           onChange={handleChange}
         />
