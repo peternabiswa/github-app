@@ -10,7 +10,9 @@ function GetUserInfo({ getName }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     getName(name);
+    console.log(name);
   };
+
   return (
     <div>
       <form className={styles.form}>
@@ -19,9 +21,9 @@ function GetUserInfo({ getName }) {
           type="text"
           placeholder="Enter GitHub user name:"
           value={name}
-          onChange={handleChange}
+          onChange={(event) => handleChange(event)}
         />
-        <button type="submit" onSubmit={handleSubmit}>
+        <button type="submit" onClick={(event) => handleSubmit(event)}>
           Submit
         </button>
       </form>

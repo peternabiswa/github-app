@@ -10,21 +10,21 @@ function App() {
   const getName = (name) => {
     setuserName(name);
   };
+  var gitHubUrl = `https://api.github.com/users/${userName}`;
+
+  const getData = async () => {
+    try {
+      const jsonData = await fetch(gitHubUrl);
+      const userInfo = await jsonData.json();
+      setuserData(userInfo);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    async function getData() {
-      try {
-        const jsonData = await fetch(
-          "https://api.github.com/users/peternabiswa"
-        );
-        const userInfo = await jsonData.json();
-        setuserData(userInfo);
-      } catch (error) {
-        console.error(error);
-      }
-    }
     getData();
-  }, []);
+  }, [userName]);
 
   return (
     <div className="App">
@@ -33,7 +33,7 @@ function App() {
           <h1 className={styles.mainh1}>Find Users</h1>
           <div className={styles.topbar}></div>
           <GetUserInfo getName={getName} />
-          <Users user={userData} />;
+          <Users userData={userData} />;
         </main>
       </div>
     </div>
