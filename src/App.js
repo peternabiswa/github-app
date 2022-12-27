@@ -15,7 +15,7 @@ function App() {
     async function getData() {
       try {
         const jsonData = await fetch(
-          `https://api.github.com/users/peternabiswa`
+          "https://api.github.com/users/peternabiswa"
         );
         const userInfo = await jsonData.json();
         setuserData(userInfo);
@@ -25,6 +25,7 @@ function App() {
     }
     getData();
   }, []);
+
   return (
     <div className="App">
       <div className={styles.container}>

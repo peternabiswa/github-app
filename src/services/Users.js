@@ -1,5 +1,5 @@
 function Users({ userData }) {
-  console.log([...userData]);
+  console.log(userData);
   // userData?.map((user) => {
   //   return (
   //     <ul>
