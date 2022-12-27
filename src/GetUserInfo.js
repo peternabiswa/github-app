@@ -1,15 +1,16 @@
 import { useState, React } from "react";
-import GetUsers from "./services/Users";
 import styles from "./app.module.css";
 
 function GetUserInfo({ getName }) {
-  const [userName, setUserName] = useState("");
+  const [name, setName] = useState("");
 
   const handleChange = (event) => {
-    setUserName(event.target.value);
-    getName(event.target.value);
+    setName(event.target.value);
   };
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    getName(name);
+  };
   return (
     <div>
       <form className={styles.form}>
@@ -17,10 +18,12 @@ function GetUserInfo({ getName }) {
           test-id="gitUser"
           type="text"
           placeholder="Enter GitHub user name:"
-          value={userName}
+          value={name}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button type="submit" onSubmit={handleSubmit}>
+          Submit
+        </button>
       </form>
     </div>
   );
