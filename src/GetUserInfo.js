@@ -2,25 +2,31 @@ import { useState, useEffect, React } from "react";
 import styles from "./app.module.css";
 import Users from "./services/Users";
 
-function GetUserInfo({ getName }) {
+function GetUserInfo() {
   const [userData, setuserData] = useState({});
   const [userName, setuserName] = useState("");
-
-  var gitHubUrl = `https://api.github.com/users/${userName}`;
-
-  const getData = async () => {
-    try {
-      const jsonData = await fetch(gitHubUrl);
-      const userInfo = await jsonData.json();
-      setuserData(userInfo);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
-    getData();
-  }, [userName]);
+    async function fetchData() {
+      const gitHubUrl = `https://api.github.com/users/${userName}`;
+      setIsLoading(true);
+      setError(null);
+      try {
+        const jsonData = await fetch(gitHubUrl);
+        const userInfo = await jsonData.json();
+        setuserData(userInfo);
+      } catch (err) {
+        setError(err);
+      }
+      setIsLoading(false);
+    }
+    if (userName) {
+      fetchData();
+    }
+  }, [dataFetched]);
 
   const handleChange = (event) => {
     setuserName(event.target.value);
@@ -28,23 +34,32 @@ function GetUserInfo({ getName }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    <Users userData={userData} />;
+    setDataFetched(true);
   };
 
   return (
     <div>
-      <form className={styles.form}>
-        <input
-          test-id="gitUser"
-          type="text"
-          placeholder="Enter GitHub user name:"
-          value={userName}
-          onChange={(event) => handleChange(event)}
-        />
-        <button type="submit" onClick={(event) => handleSubmit(event)}>
-          Submit
-        </button>
-      </form>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>An error occurred: {error.message}</div>
+      ) : (
+        <div>
+          <form className={styles.form}>
+            <input
+              test-id="gitUser"
+              type="text"
+              placeholder="Enter GitHub user name:"
+              value={userName}
+              onChange={handleChange}
+            />
+            <button type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
+          </form>
+          {userName && <Users userData={userData} />}
+        </div>
+      )}
     </div>
   );
 }
