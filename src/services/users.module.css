@@ -1,0 +1,25 @@
+.userProfile {
+  display: inline-flex;
+  margin: auto;
+}
+
+.details {
+  color: #0066a2;
+  margin-left: 10rem;
+  font-size: 1rem;
+}
+
+.profilePic {
+  margin-left: 10rem;
+  vertical-align: middle;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: aqua;
+}
+
+.link {
+  color: #0066a2;
+  font-size: 2rem;
+}

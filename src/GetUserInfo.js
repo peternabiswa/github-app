@@ -23,7 +23,7 @@ function GetUserInfo() {
       }
       setIsLoading(false);
     }
-    if (userName) {
+    if (userName || dataFetched) {
       fetchData();
     }
   }, [dataFetched]);
@@ -57,7 +57,7 @@ function GetUserInfo() {
               Submit
             </button>
           </form>
-          {userName && <Users userData={userData} />}
+          {dataFetched && <Users userData={userData} />}
         </div>
       )}
     </div>

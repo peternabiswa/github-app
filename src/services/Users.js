@@ -1,19 +1,29 @@
 import React from "react";
+import style from "./users.module.css";
 
 const Users = (props) => {
   const { userData } = props;
   return (
-    <div>
-      <div>Name: {userData.name}</div>
-      <div>userName: {userData.login}</div>
-      <div>ID: {userData.id}</div>
-      <div>Followers: {userData.id}</div>
-      <div>Following: {userData.id}</div>
+    <div className={style.userProfile}>
       <div>
-        <a href={userData.html_url}>Repository</a>
+        <img
+          className={style.profilePic}
+          src={userData.avatar_url}
+          alt="Profile"
+        ></img>
       </div>
-      <div>
-        <img src={userData.avatar_url} alt="Profile picture"></img>
+
+      <div className={style.details}>
+        <h1>Name: {userData.name}</h1>
+        <div>userName: {userData.login}</div>
+        <div>ID: {userData.id}</div>
+        <div>Followers: {userData.id}</div>
+        <div>Following: {userData.id}</div>
+        <div>
+          <a className={style.link} href={userData.html_url}>
+            View Profile
+          </a>
+        </div>
       </div>
     </div>
   );
