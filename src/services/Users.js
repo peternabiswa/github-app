@@ -14,7 +14,7 @@ const Users = (props) => {
       </div>
 
       <div className={style.details}>
-        <h1>Name: {userData.name}</h1>
+        <h1>{userData.name}</h1>
         <div>userName: {userData.login}</div>
         <div>ID: {userData.id}</div>
         <div>Followers: {userData.id}</div>
