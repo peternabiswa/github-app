@@ -21,7 +21,7 @@ const Users = (props) => {
         <div>Following: {userData.id}</div>
         <div>
           <a className={style.link} href={userData.html_url}>
-            View Profile
+            <button className={style.link}> View Profile</button>
           </a>
         </div>
       </div>

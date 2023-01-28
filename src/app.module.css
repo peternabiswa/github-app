@@ -6,7 +6,7 @@
 .container {
   background-color: black;
   color: white;
-  height: 100vh;
+  height: auto;
   margin-top: 2vh;
   padding-top: 10px;
 }
